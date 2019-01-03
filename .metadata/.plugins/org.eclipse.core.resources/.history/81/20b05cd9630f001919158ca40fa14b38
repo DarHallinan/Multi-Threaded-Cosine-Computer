@@ -1,0 +1,9 @@
+package ie.gmit.sw;
+
+public class Menu {
+	/** Main class for Menu */
+	public static void main(String[] args) throws Exception {
+		
+	}
+	
+}

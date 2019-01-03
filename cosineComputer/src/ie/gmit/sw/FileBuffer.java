@@ -1,0 +1,56 @@
+package ie.gmit.sw;
+
+// imports
+import java.io.*;
+import java.io.IOException;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
+
+public class FileBuffer {
+
+	/** Main class for FileBuffer */
+	public static void main(String[] args) throws Exception {
+		FileChooser();
+	}
+
+	/** File Chooser class */
+	private static void FileChooser() throws IOException {
+		// Initialize JFileChooser and the variable used for choosing files
+		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		int returnValue = jfc.showOpenDialog(null);
+		
+		// if valid file is chose, opens file
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = jfc.getSelectedFile();
+			System.out.println(selectedFile.getAbsolutePath());
+			FileReader(selectedFile); // pass to fileReader
+		}
+	}
+
+	/** File Reader class */
+	private static void FileReader(File selectedFile) throws IOException {
+
+		if (selectedFile != null)
+			System.out.println("file recieved");
+
+		// Creates a FileReader Object
+		FileReader fr = new FileReader(selectedFile);
+		char[] a = new char[100];
+		fr.read(a); // reads the file to the array
+		
+		// prints characters to console
+		for (char c : a)
+			System.out.print(c); 
+		
+		fr.close();
+		
+		ShinglersList(selectedFile); // pass to parser
+	}
+	
+	/** Parses Files to Shingles */
+	private static void ShinglersList(File selectedFile) throws IOException {
+		
+	}
+
+} // end of FileBuffer()

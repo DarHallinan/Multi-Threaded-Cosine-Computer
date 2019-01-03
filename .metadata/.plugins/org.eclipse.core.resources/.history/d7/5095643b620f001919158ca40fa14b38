@@ -1,0 +1,14 @@
+package ie.gmit.sw;
+
+import java.io.IOException;
+import javax.swing.JFileChooser;
+
+public class FileBuffer {
+	/** Main class for FileBuffer */
+	public static void main(String[] args) throws Exception {
+	}
+	
+	private static void fileChooser() throws IOException{
+	    JFileChooser chooser = new JFileChooser();
+	}
+}

@@ -1,0 +1,33 @@
+package ie.gmit.sw;
+// imports
+import java.io.IOException;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileSystemView;
+
+public class FileBuffer {
+	/** Main class for FileBuffer */
+	public static void main(String[] args) throws Exception {
+		FileChooser();
+	}
+	
+	/** File Chooser class */
+	private static void FileChooser() throws IOException{
+		// Initialize JFileChooser and the variable used for choosing files
+		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());	
+		int returnValue = jfc.showOpenDialog(null);
+		// if valid file is chose, opens file
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = jfc.getSelectedFile();
+			System.out.println(selectedFile.getAbsolutePath());
+			FileReader(selectedFile);
+		}
+	}
+	
+	/** File Reader class */
+	private static void FileReader(File selectedFile) throws IOException{
+		if(selectedFile != null)
+			System.out.println("file recieved");
+	}
+	
+} // end of FileBuffer()
